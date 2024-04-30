@@ -3,7 +3,7 @@
 Welcome to the Instagram Clone project built using Laravel! This web application allows users to register, create profiles, share posts with images and captions, follow/unfollow other users, add likes and comments, and much more. The project is designed with various features to mimic the functionality of the popular social media platform, Instagram.
 
 ## Live Demo
-[![Watch the video]([https://img.youtube.com/vi/ftZtqf3u2xg/0.jpg)](https://www.youtube.com/embed/ftZtqf3u2xg](https://youtu.be/msnggAVaHpI?feature=shared))
+[![Watch the video]([https://img.youtube.com/vi/ftZtqf3u2xg/0.jpg)](https://www.youtube.com/embed/ftZtqf3u2xg](https://youtu.be/msnggAVaHpI?feature=shared)
 
 ### register/login demo
 [![Watch the video](https://img.youtube.com/vi/QBPCibM9ZiA/0.jpg)](https://www.youtube.com/embed/QBPCibM9ZiA)
