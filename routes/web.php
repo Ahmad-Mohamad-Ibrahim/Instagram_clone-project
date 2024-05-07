@@ -38,9 +38,9 @@ Route::get('/send', function () {
     return response ('sending');
 });
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+// Route::get('/dashboard', function () {
+//     return view('dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     
@@ -49,32 +49,31 @@ Route::middleware('auth')->group(function () {
     Route::post('/posts',[PostController::class,'store'])->name('posts.store');
 });
 
-// posts routes
-Route::get('/posts',[PostController::class ,'index'])->name('posts.index')->middleware('auth');;
 
-Route::get('/posts/{id}',[PostController::class,'show'] )->name('posts.show')->middleware('auth');
-
-Route::get('/posts/{id}/edit', [PostController::class, 'edit'])
-->name('posts.edit')->middleware('auth');
-
-Route::put('/posts/{id}', [PostController::class, 'update'])
-->name('posts.update')->middleware('auth');
-
-Route::delete('/posts/{id}', [PostController::class, 'destroy'])
-->name('posts.destroy')->middleware('auth');
-
-// search
-Route::get('/search', [PostController::class, 'search'])
-->name('posts.search')->middleware('auth');
-
-
-Route::middleware('auth')->group(function () {
+Route::middleware(['auth', 'verified'])->group(function () {
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
     Route::post('/block/{blockedUser}', [UserController::class, 'blockUser'])->name('users.block');
     Route::post('/unblock/{blockedUser}', [UserController::class, 'unblockUser'])->name('users.unblock');
+
+    // posts routes
+    Route::get('/posts',[PostController::class ,'index'])->name('posts.index');
+
+    Route::get('/posts/{id}',[PostController::class,'show'] )->name('posts.show');
+
+    Route::get('/posts/{id}/edit', [PostController::class, 'edit'])
+    ->name('posts.edit');
+    Route::put('/posts/{id}', [PostController::class, 'update'])
+    ->name('posts.update');
+    
+    Route::delete('/posts/{id}', [PostController::class, 'destroy'])
+    ->name('posts.destroy');
+
+    // search
+    Route::get('/search', [PostController::class, 'search'])
+    ->name('posts.search');
 
 });
 
